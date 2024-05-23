@@ -1,13 +1,12 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-const dbUri = process.env.MONGODB_URI
 const connectToDatabase = async () => {
     try {
-        await mongoose.connect(dbUri);
-        console.log('DB is connected');
+        await mongoose.connect('mongodb+srv://database:databaseks@daw-db.cxthcz2.mongodb.net/?retryWrites=true&w=majority&appName=DAW-DB');
+        console.log('Connected to database');
     } catch (error) {
         console.error('Connection error:', error);
     }
 };
 
-export default connectToDatabase;
+module.exports = connectToDatabase;
